@@ -26,23 +26,23 @@ public class GreetingService {
 
     public void captureHeaderAsync() {
         Cancellable data = Uni
-                .createFrom()
-                .item(httpServerRequest.headers())
-                .runSubscriptionOn(Infrastructure.getDefaultExecutor())
-                .onItem()
-                .delayIt()
-                .by(Duration.ofSeconds(5))
-                .subscribe()
-                .with(
-                        item -> {
-                            try {
-                                Log.infof("Request Headers async sent by parameters: %s", item);
-                                Log.infof("Request Headers async get from context: %s", httpServerRequest.headers());
-                            } catch (IllegalProductException ignored) {
-                                Log.info("Fail to capture Headers.");
-                            }
-                        },
-                        failure -> Log.info("Request failed.")
-                );
+            .createFrom()
+            .item(httpServerRequest.headers())
+            .runSubscriptionOn(Infrastructure.getDefaultExecutor())
+            .onItem()
+            .delayIt()
+            .by(Duration.ofSeconds(5))
+            .subscribe()
+            .with(
+                item -> {
+                    try {
+                        Log.infof("Request Headers async sent by parameters: %s", item);
+                        Log.infof("Request Headers async get from context: %s", httpServerRequest.headers());
+                    } catch (IllegalProductException ignored) {
+                        Log.info("Fail to capture Headers.");
+                    }
+                },
+                failure -> Log.info("Request failed.")
+            );
     }
 }
