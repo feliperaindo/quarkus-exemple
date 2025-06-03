@@ -4,6 +4,24 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
 
+## System requirements
+
+To run this application you need:
+
+- JDK 21 or later
+- Maven 3.9.5 or later
+- Docker
+
+## Running the application with Docker
+
+You can run the application using Docker with the following command:
+
+```shell script
+docker compose up
+```
+
+> **_NOTE:_**  The application will be available at <http://localhost:8080>.
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
