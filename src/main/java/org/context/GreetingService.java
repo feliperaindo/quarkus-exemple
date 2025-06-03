@@ -20,7 +20,7 @@ public class GreetingService {
 
     public MultiMap captureHeadersSync() {
         MultiMap headers = httpServerRequest.headers();
-        Log.infof("Cabeçalhos da requisição: %s", headers);
+        Log.infof("Request Headers: %s", headers);
         return headers;
     }
 
@@ -36,13 +36,13 @@ public class GreetingService {
                 .with(
                         item -> {
                             try {
-                                Log.infof("Cabeçalhos da requisição assíncrona recebidos por parâmetros: %s", item);
-                                Log.infof("Cabeçalhos da requisição assíncrona: %s", httpServerRequest.headers());
+                                Log.infof("Request Headers async sent by parameters: %s", item);
+                                Log.infof("Request Headers async get from context: %s", httpServerRequest.headers());
                             } catch (IllegalProductException ignored) {
-                                Log.info("falhou a captura dos cabeçalhos");
+                                Log.info("Fail to capture Headers.");
                             }
                         },
-                        failure -> Log.info("falhou a requisição")
+                        failure -> Log.info("Request failed.")
                 );
     }
 }
