@@ -39,6 +39,7 @@ public class GreetingService {
                         Log.infof("Request Headers async sent by parameters: %s", item);
                         Log.infof("Request Headers async get from context: %s", httpServerRequest.headers());
                     } catch (IllegalProductException ignored) {
+                        ignored.printStackTrace();
                         Log.info("Fail to capture Headers.");
                     }
                 },
