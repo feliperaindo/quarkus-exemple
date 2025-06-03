@@ -1,0 +1,7 @@
+services:
+  app-test:
+    image: app-test:latest
+    build: Dockerfile
+    container_name: app-test
+    ports:
+      - "8080:8080"
